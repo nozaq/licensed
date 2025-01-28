@@ -12,6 +12,7 @@ reviewed:
     - pathname-common_prefix
 
     # bsd-2 or ruby
+    - csv
     - logger
     - net-http
     - racc
