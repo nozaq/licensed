@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 3.0.0"
 
+  spec.add_dependency "csv", "~> 3.3"
   spec.add_dependency "licensee", "~> 9.16"
   spec.add_dependency "thor", "~> 1.2"
   spec.add_dependency "pathname-common_prefix", "~> 0.0.1"
