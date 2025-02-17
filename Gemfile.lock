@@ -73,7 +73,7 @@ GEM
     pathname-common_prefix (0.0.2)
     public_suffix (6.0.1)
     racc (1.8.1)
-    rack (3.0.9.1)
+    rack (3.0.12)
     rainbow (3.1.1)
     rake (13.2.1)
     regexp_parser (2.6.2)
