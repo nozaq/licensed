@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 5.0.3
+
+- Support pnpm v9 (<https://github.com/licensee/licensed/pull/803>)
+
 ## 5.0.2
 
 - Pin setup-ruby and set permissions in test workflow (<https://github.com/licensee/licensed/pull/768>)
