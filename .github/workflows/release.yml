@@ -1,4 +1,4 @@
-name: Build and publish release assets
+name: Release
 
 on:
   release:
@@ -14,16 +14,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
 
-    - name: Publish to GPR
+    - uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+
+    - name: Build Gem
       run: |
         mkdir -p $HOME/.gem
         touch $HOME/.gem/credentials
         chmod 0600 $HOME/.gem/credentials
-        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
         gem build *.gemspec
+
+    - name: Publish to GitHub Packages registry
+      run: |
+        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
         gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
       env:
         GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
@@ -31,11 +34,7 @@ jobs:
 
     - name: Publish to RubyGems
       run: |
-        mkdir -p $HOME/.gem
-        touch $HOME/.gem/credentials
-        chmod 0600 $HOME/.gem/credentials
         printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-        gem build *.gemspec
         gem push *.gem
       env:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
