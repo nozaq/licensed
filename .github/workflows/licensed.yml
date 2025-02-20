@@ -1,17 +1,10 @@
-name: Verify cached license metadata
+name: Licensed
 
 on:
-  # run on pushes to the default branch
   push:
     branches:
-      - master
-  # run on all pull request events
+      - main
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-  # run on demand
   workflow_dispatch:
 
 jobs:
@@ -21,15 +14,19 @@ jobs:
       contents: write
 
     steps:
-      # checkout the repo
       - uses: actions/checkout@v4
 
-      # set up tooling
       - uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
         with:
           bundler-cache: true
 
-      # run licensed
+      - name: Build Gem
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          gem build *.gemspec
+
       - uses: github/licensed-ci@v1
         with:
           # override the command to use licensed built from this repo
