@@ -10,6 +10,7 @@ on:
     # Once every day at midnight UTC
     - cron: "0 0 * * *"
   issue_comment:
+  workflow_dispatch:
 
 permissions: {}
 
