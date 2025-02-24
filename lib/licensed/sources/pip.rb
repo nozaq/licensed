@@ -41,7 +41,7 @@ module Licensed
       # Returns the location of license files in the package, checking for the inclusion of a new `license_files`
       # folder per https://peps.python.org/pep-0639/
       def package_license_location(package)
-        dist_info = File.join(package["Location"], package["Name"].gsub("-", "_") +  "-" + package["Version"] + ".dist-info")
+        dist_info = File.join(package["Location"], package["Name"].gsub("-", "_") + "-" + package["Version"] + ".dist-info")
 
         license_path = ["license_files", "licenses"]
           .map { |directory| File.join(dist_info, directory) }
