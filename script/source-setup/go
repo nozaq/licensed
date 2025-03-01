@@ -9,6 +9,7 @@ fi
 # setup test fixtures
 BASE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 export GOPATH="$BASE_PATH/test/fixtures/go"
+export GOTOOLCHAIN=local
 cd "$BASE_PATH/test/fixtures/go"
 
 if [ "$1" == "-f" ]; then
