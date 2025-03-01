@@ -13,8 +13,8 @@ cd "$BASE_PATH/test/fixtures/go"
 
 if [ "$1" == "-f" ]; then
   git clean -ffX .
-  go clean -modcache
+  GOTOOLCHAIN=local go clean -modcache
 fi
 
 cd src/test
-go mod download
+GOTOOLCHAIN=local go mod download
