@@ -62,6 +62,7 @@ if Licensed::Shell.tool_available?("pipenv")
       it "finds license contents from .dist-info/license_files" do
         Dir.chdir fixtures do
           dep = source.dependencies.detect { |d| d.name == "datadog" }
+          assert dep
           assert dep.path.end_with?("license_files")
           refute_empty dep.license_files
         end
