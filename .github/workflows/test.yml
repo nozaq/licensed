@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: 18
     - name: Install Bower
@@ -57,7 +57,7 @@ jobs:
       with:
         bundler-cache: true
     - name: Setup Haskell
-      uses: haskell-actions/setup@bbd90a29996ac33b1c644a42206e312fc0379748
+      uses: haskell-actions/setup@bbd90a29996ac33b1c644a42206e312fc0379748 # v2.7.9
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
@@ -123,7 +123,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup php
-      uses: nanasess/setup-php@50c1c73e8ab7258f64ab525b05fcac481c0762db
+      uses: nanasess/setup-php@50c1c73e8ab7258f64ab525b05fcac481c0762db # v4.1.0
       with:
         php-version: ${{ matrix.php }}
     - name: Set up Ruby
@@ -161,7 +161,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
       with:
         go-version: ${{ matrix.go }}
     - name: Set up Ruby
@@ -185,7 +185,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
       with:
         go-version: ${{ matrix.go }}
         cache: true
@@ -217,7 +217,7 @@ jobs:
       with:
         bundler-cache: true
     - name: Set up Java
-      uses: actions/setup-java@v4.7.0
+      uses: actions/setup-java@3a4f6e1af504cf6a31855fa899c6aa5355ba6c12 # v4.7.0
       with:
         java-version: ${{ matrix.java }}
         distribution: adopt
@@ -252,7 +252,7 @@ jobs:
         elixir: [ 1.13.x, 1.14.x ]
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-    - uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451
+    - uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451 # v1.18.2
       with:
         otp-version: ${{matrix.otp}}
         elixir-version: ${{matrix.elixir}}
@@ -274,7 +274,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: ${{ matrix.node_version }}
         cache: npm
@@ -297,7 +297,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup dotnet
-      uses: actions/setup-dotnet@v4.3.0
+      uses: actions/setup-dotnet@3951f0dfe7a07e2313ec93c75700083e2005cbab # v4.3.0
       with:
         dotnet-version: ${{ matrix.dotnet }}
     - name: Set up Ruby
@@ -318,7 +318,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
       with:
         python-version: ${{ matrix.python }}
         architecture: x64
@@ -327,7 +327,6 @@ jobs:
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
-
     - name: Install virtualenv
       run: pip install virtualenv
     - name: Set up fixtures
@@ -344,7 +343,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
       with:
         python-version: ${{ matrix.python }}
         architecture: x64
@@ -353,7 +352,6 @@ jobs:
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
-
     - name: Install pipenv
       run: pip install pipenv
     - name: Set up fixtures
@@ -369,19 +367,17 @@ jobs:
         pnpm_version: [ 7, 9 ]
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-    - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+    - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       name: Install pnpm
       id: pnpm-install
       with:
         version: ${{ matrix.pnpm_version }}
         run_install: false
-
     - name: Get pnpm store directory
       id: pnpm-cache
       shell: bash
       run: |
         echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
     - uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
       name: Setup pnpm cache
       with:
@@ -389,12 +385,10 @@ jobs:
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
-
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
-
     - name: Set up fixtures
       run: script/source-setup/pnpm
     - name: Run tests
@@ -409,7 +403,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup Swift
-      uses: swift-actions/setup-swift@d4537ff835c9778c934e48f78639e270edd5839e
+      uses: swift-actions/setup-swift@d4537ff835c9778c934e48f78639e270edd5839e # v2.2.0
       with:
         swift-version: ${{ matrix.swift }}
     - name: Set up Ruby
@@ -438,7 +432,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: 12
         cache: yarn
@@ -462,7 +456,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: 12
         cache: yarn
