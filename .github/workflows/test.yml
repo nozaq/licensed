@@ -206,12 +206,13 @@ jobs:
     needs: core
     strategy:
       matrix:
-        # TODO: the reporting plugin used to gather data is not yet fully compatible with
-        # gradle 7, which is needed for compatibility with Java 16.  after compatibility issues
-        # are resolved, update this matrix list with '16'.
-        # possibly fixed by https://github.com/jk1/Gradle-License-Report/pull/166
-        java: [ '11' ]
-        gradle: ['current', '7.6', '6.9.3']
+        include:
+          - gradle: '6.9.4'
+            java: '15'
+          - gradle: '7.6.4'
+            java: '19'
+          - gradle: 'current'
+            java: '21'
     steps:
     - uses: actions/checkout@v4
     - name: Set up Ruby
@@ -225,7 +226,7 @@ jobs:
         distribution: adopt
         cache: gradle
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1
+      uses: gradle/actions/setup-gradle@94baf225fe0a508e581a564467443d0e2379123b
       with:
         gradle-version: ${{ matrix.gradle }}
     - name: Bootstrap
