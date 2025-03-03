@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
       uses: actions/setup-node@v4
       with:
@@ -33,7 +33,7 @@ jobs:
       matrix:
         bundler: [ '2.1', '2.2', '2.3', '2.4' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
       with:
@@ -51,7 +51,7 @@ jobs:
       matrix:
         ghc: [ '9.0', '9.2', '9.4' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
       with:
@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
       with:
@@ -103,7 +103,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
       with:
@@ -121,7 +121,7 @@ jobs:
       matrix:
         php: [ '7.4', '8.0' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup php
       uses: nanasess/setup-php@50c1c73e8ab7258f64ab525b05fcac481c0762db
       with:
@@ -141,7 +141,7 @@ jobs:
       matrix:
         ruby: [ '3.0', '3.1', '3.2' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
       with:
@@ -159,7 +159,7 @@ jobs:
       matrix:
         go: [ '1.17.x', '1.18.x', '1.19.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup go
       uses: actions/setup-go@v5
       with:
@@ -183,7 +183,7 @@ jobs:
       matrix:
         go: [ '1.17.x', '1.18.x', '1.19.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup go
       uses: actions/setup-go@v5
       with:
@@ -211,7 +211,7 @@ jobs:
         java: [ '11' ]
         gradle: ['current', '7.6', '6.9.3']
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
       with:
@@ -235,7 +235,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
       uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
       with:
@@ -251,7 +251,7 @@ jobs:
         otp: [24.x, 25.x]
         elixir: [ 1.13.x, 1.14.x ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451
       with:
         otp-version: ${{matrix.otp}}
@@ -272,7 +272,7 @@ jobs:
       matrix:
         node_version: [ 14, 16, 18 ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
       uses: actions/setup-node@v4
       with:
@@ -295,7 +295,7 @@ jobs:
       matrix:
         dotnet: [ '8.x', '10.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup dotnet
       uses: actions/setup-dotnet@v4.3.0
       with:
@@ -316,7 +316,7 @@ jobs:
       matrix:
         python: [ '3.8', '3.9', '3.10' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup python
       uses: actions/setup-python@v5
       with:
@@ -342,7 +342,7 @@ jobs:
       matrix:
         python: [ '3.8', '3.10', '3.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup python
       uses: actions/setup-python@v5
       with:
@@ -368,7 +368,7 @@ jobs:
       matrix:
         pnpm_version: [ 7, 9 ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
       name: Install pnpm
       id: pnpm-install
@@ -407,7 +407,7 @@ jobs:
       matrix:
         swift: [ "5.7", "5.6" ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup Swift
       uses: swift-actions/setup-swift@d4537ff835c9778c934e48f78639e270edd5839e
       with:
@@ -436,7 +436,7 @@ jobs:
         # not using 1.0.0 because it doesn't support `yarn list --production`
         yarn_version: [ 1.4.0, latest ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
       uses: actions/setup-node@v4
       with:
@@ -460,7 +460,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
       uses: actions/setup-node@v4
       with:
