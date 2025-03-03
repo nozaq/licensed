@@ -27,7 +27,7 @@ jobs:
           chmod 0600 $HOME/.gem/credentials
           gem build *.gemspec
 
-      - uses: github/licensed-ci@v1
+      - uses: licensee/licensed-ci@98eef7c23bcf8211e108781a9594e969da913e89 # v1.11.2
         with:
           # override the command to use licensed built from this repo
           command: bundle exec licensed
