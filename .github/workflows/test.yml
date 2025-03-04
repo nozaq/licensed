@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: 18
     - name: Install Bower
       run: npm install -g bower
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -33,9 +33,9 @@ jobs:
       matrix:
         bundler: [ '2.1', '2.2', '2.3', '2.4' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler: ${{ matrix.bundler }}
         bundler-cache: true
@@ -51,18 +51,18 @@ jobs:
       matrix:
         ghc: [ '9.0', '9.2', '9.4' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Setup Haskell
-      uses: haskell-actions/setup@bbd90a29996ac33b1c644a42206e312fc0379748
+      uses: haskell-actions/setup@bbd90a29996ac33b1c644a42206e312fc0379748 # v2.7.9
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
     - name: cache cabal dependencies
-      uses: actions/cache@v4
+      uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
       with:
         path: |
           ~/.cabal/packages
@@ -79,17 +79,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Setup Rust toolchain
-      uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af
-      with:
-        toolchain: stable
+      run: rustup default stable
     - name: cache cargo dependencies
-      uses: actions/cache@v4
+      uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
       with:
         path: |
           ~/.cargo/registry
@@ -105,9 +103,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -123,13 +121,13 @@ jobs:
       matrix:
         php: [ '7.4', '8.0' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup php
-      uses: nanasess/setup-php@50c1c73e8ab7258f64ab525b05fcac481c0762db
+      uses: nanasess/setup-php@50c1c73e8ab7258f64ab525b05fcac481c0762db # v4.1.0
       with:
         php-version: ${{ matrix.php }}
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -143,9 +141,9 @@ jobs:
       matrix:
         ruby: [ '3.0', '3.1', '3.2' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         ruby-version: ${{matrix.ruby}}
         bundler-cache: true
@@ -161,13 +159,13 @@ jobs:
       matrix:
         go: [ '1.17.x', '1.18.x', '1.19.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
       with:
         go-version: ${{ matrix.go }}
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
 
@@ -185,15 +183,15 @@ jobs:
       matrix:
         go: [ '1.17.x', '1.18.x', '1.19.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
       with:
         go-version: ${{ matrix.go }}
         cache: true
         cache-dependency-path: test/fixtures/go/src/test/go.sum
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -213,19 +211,19 @@ jobs:
         java: [ '11' ]
         gradle: ['current', '7.6', '6.9.3']
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up Java
-      uses: actions/setup-java@v4.7.0
+      uses: actions/setup-java@3a4f6e1af504cf6a31855fa899c6aa5355ba6c12 # v4.7.0
       with:
         java-version: ${{ matrix.java }}
         distribution: adopt
         cache: gradle
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1
+      uses: gradle/actions/setup-gradle@94baf225fe0a508e581a564467443d0e2379123b # v4.3.0
       with:
         gradle-version: ${{ matrix.gradle }}
     - name: Bootstrap
@@ -237,9 +235,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Run tests
@@ -253,13 +251,13 @@ jobs:
         otp: [24.x, 25.x]
         elixir: [ 1.13.x, 1.14.x ]
     steps:
-    - uses: actions/checkout@v4
-    - uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451 # v1.18.2
       with:
         otp-version: ${{matrix.otp}}
         elixir-version: ${{matrix.elixir}}
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -274,15 +272,15 @@ jobs:
       matrix:
         node_version: [ 14, 16, 18 ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: ${{ matrix.node_version }}
         cache: npm
         cache-dependency-path: test/fixtures/npm/package-lock.json
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -297,13 +295,13 @@ jobs:
       matrix:
         dotnet: [ '8.x', '10.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup dotnet
-      uses: actions/setup-dotnet@v4.3.0
+      uses: actions/setup-dotnet@3951f0dfe7a07e2313ec93c75700083e2005cbab # v4.3.0
       with:
         dotnet-version: ${{ matrix.dotnet }}
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -318,18 +316,17 @@ jobs:
       matrix:
         python: [ '3.8', '3.9', '3.10' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
       with:
         python-version: ${{ matrix.python }}
         architecture: x64
         cache: pip
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
-
     - name: Install virtualenv
       run: pip install virtualenv
     - name: Set up fixtures
@@ -344,18 +341,17 @@ jobs:
       matrix:
         python: [ '3.8', '3.10', '3.x' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
       with:
         python-version: ${{ matrix.python }}
         architecture: x64
         cache: pipenv
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
-
     - name: Install pipenv
       run: pip install pipenv
     - name: Set up fixtures
@@ -370,33 +366,29 @@ jobs:
       matrix:
         pnpm_version: [ 7, 9 ]
     steps:
-    - uses: actions/checkout@v4
-    - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       name: Install pnpm
       id: pnpm-install
       with:
         version: ${{ matrix.pnpm_version }}
         run_install: false
-
     - name: Get pnpm store directory
       id: pnpm-cache
       shell: bash
       run: |
         echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-    - uses: actions/cache@v4
+    - uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
       name: Setup pnpm cache
       with:
         path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
-
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
-
     - name: Set up fixtures
       run: script/source-setup/pnpm
     - name: Run tests
@@ -409,16 +401,16 @@ jobs:
       matrix:
         swift: [ "5.7", "5.6" ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup Swift
-      uses: swift-actions/setup-swift@d4537ff835c9778c934e48f78639e270edd5839e
+      uses: swift-actions/setup-swift@d4537ff835c9778c934e48f78639e270edd5839e # v2.2.0
       with:
         swift-version: ${{ matrix.swift }}
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
-    - uses: actions/cache@v4
+    - uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
       name: cache spm dependencies
       with:
         path: .build
@@ -438,9 +430,9 @@ jobs:
         # not using 1.0.0 because it doesn't support `yarn list --production`
         yarn_version: [ 1.4.0, latest ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: 12
         cache: yarn
@@ -450,7 +442,7 @@ jobs:
       env:
         YARN_VERSION: ${{ matrix.yarn_version }}
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
@@ -462,9 +454,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: core
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - name: Setup node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
       with:
         node-version: 12
         cache: yarn
@@ -472,7 +464,7 @@ jobs:
     - name: Install Yarn
       run: npm install -g yarn
     - name: Set up Ruby
-      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777
+      uses: ruby/setup-ruby@32110d4e311bd8996b2a82bf2a43b714ccc91777 # v1.221.0
       with:
         bundler-cache: true
     - name: Set up fixtures
